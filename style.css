@@ -1,0 +1,728 @@
+/* ============================================================
+   style.css — Gudang Garam International Landing Ad
+   Extracted from: app.blade.php, hero.blade.php, footer.blade.php
+   ============================================================ */
+
+/* ── Reset & base ────────────────────────────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Force-dark protection (Layer 3) ─────────────────────────────────────── */
+html {
+    color-scheme: light only;
+    forced-color-adjust: none;
+    -webkit-filter: none !important;
+    filter: none !important;
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior-y: auto;
+}
+
+body {
+    color-scheme: light only;
+    forced-color-adjust: none;
+    -webkit-filter: none !important;
+    filter: none !important;
+    isolation: isolate;
+    font-family: 'Source Sans 3', sans-serif;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    height: 100dvh;
+    overflow: hidden;
+    overscroll-behavior-y: auto;
+    position: relative;
+}
+
+main {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+    -webkit-filter: none !important;
+    filter: none !important;
+    forced-color-adjust: none;
+    color-scheme: light only;
+}
+
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+    html, body {
+        color-scheme: light only;
+        forced-color-adjust: none;
+        -webkit-filter: none !important;
+        filter: none !important;
+        background: transparent;
+    }
+}
+
+/* ── PTR Spinner animation ───────────────────────────────────────────────── */
+@keyframes ptr-spin {
+    to { transform: rotate(360deg); }
+}
+#ptr-spinner.spinning {
+    animation: ptr-spin 0.7s linear infinite;
+}
+
+/* ── Force-dark protection for banner ────────────────────────────────────── */
+#gg-banner,
+#gg-banner * {
+    forced-color-adjust: none !important;
+    color-scheme: light only;
+}
+
+#gg-banner {
+    isolation: isolate;
+    -webkit-filter: none !important;
+    filter: none !important;
+}
+
+#gg-banner img,
+#gg-banner .bg-image,
+#gg-banner .scratch-wrap-wrap,
+#gg-banner .scratch-wrap,
+#gg-banner .scratch-canvas,
+#gg-banner .scratch-reveal,
+#gg-banner .scratch-reveal *,
+#gg-banner .bg-linier-mobile,
+#gg-banner .tagline,
+#gg-banner .tagline *,
+#gg-banner .tagline-reveal-slot,
+#gg-banner .tagline-reveal-slot * {
+    -webkit-filter: none !important;
+    filter: none !important;
+}
+
+#gg-banner img.gudang-garam,
+#gg-banner .rivet,
+#gg-banner img {
+    -webkit-filter: brightness(1) !important;
+    filter: brightness(1) !important;
+    forced-color-adjust: none !important;
+}
+
+#gg-banner .scratch-reveal a,
+#gg-banner .tagline-desktop,
+#gg-banner .tagline-mobile,
+#gg-banner .tagline-reveal-slot a {
+    color: #760000 !important;
+    -webkit-text-fill-color: #760000 !important;
+    will-change: transform;
+    isolation: isolate;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* ── Banner wrapper ───────────────────────────────────────────────────────── */
+#gg-banner * { box-sizing: border-box; }
+
+#gg-banner {
+    width: 100%;
+    font-family: 'Source Sans 3', sans-serif;
+    overflow: hidden;
+}
+
+/* ── DESKTOP layout (≥ 640px) ────────────────────────────────────────────── */
+@media (min-width: 640px) {
+    #gg-banner {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        min-height: 260px;
+    }
+    #gg-mobile { display: none !important; }
+    #gg-desktop { display: flex !important; width: 100%; }
+}
+
+/* ── MOBILE layout (< 640px) ─────────────────────────────────────────────── */
+@media (max-width: 639px) {
+    #gg-banner { display: block; }
+    #gg-desktop { display: none !important; }
+    #gg-mobile { display: flex !important; flex-direction: column; }
+}
+
+/* ── Mobile specific styles ──────────────────────────────────────────────── */
+#gg-mobile {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+}
+
+.gg-mobile-brand {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    margin: 0 20% 10px 20%;
+}
+
+.gg-mobile-brand .bg-image {
+    flex: 1;
+    border-radius: 0 0 20px 20px;
+}
+
+.gg-mobile-brand .bg-image img {
+    width: 100%;
+    border-radius: 0 0 16px 16px;
+    box-shadow: -5px 5px 8px -3px #62491d;
+    display: block;
+    aspect-ratio: 870 / 753;
+}
+
+.gg-mobile-scratch { margin: 0 10% 10px 10%; }
+
+.gg-mobile-scratch .scratch-wrap {
+    width: 100%;
+    height: clamp(105px, 32.4vw, 154px);
+}
+
+/* ── Khusus 1920x1080 / 1920x945 desktop ─────────────────────────────────── */
+@media (min-width: 1800px) and (min-height: 900px) {
+    .gudang-garam { width: 42vw !important; }
+    .scratch-wrap { width: 38vw !important; height: 15.84vw !important; }
+    .right-content { padding-top: 2% !important; }
+    .scratch-reveal a { font-size: 3.34vw !important; }
+    .scratch-wrap .rivet { width: 37px !important; height: 37px !important; }
+    .tagline-desktop { font-size: clamp(1.6rem, 3.6vw, 4rem) !important; }
+    .tagline-reveal-slot.do-appear a { font-size: 3.34vw !important; }
+}
+
+/* ── Khusus 1707x932 desktop ─────────────────────────────────────────────── */
+@media (min-width: 1650px) and (max-width: 1799px) and (min-height: 900px) {
+    .scratch-reveal a { font-size: clamp(22px, 3.6vw, 60px) !important; margin-top: 1rem !important; }
+    .tagline-desktop { font-size: clamp(1.6rem, 3.6vw, 3.8rem) !important; }
+    .tagline-reveal-slot.do-appear a { font-size: 3.5vw !important; }
+}
+
+/* ── Khusus 1470x771 desktop ─────────────────────────────────────────────── */
+@media (min-width: 1400px) and (max-width: 1599px) and (min-height: 750px) {
+    .gudang-garam { width: 42vw !important; }
+    .scratch-wrap { width: 38.4vw !important; height: 16.02vw !important; }
+    .right-content { padding-top: 2% !important; }
+    .scratch-reveal a { font-size: 3.34vw !important; }
+    .scratch-wrap .rivet { width: 30px !important; height: 30px !important; }
+    .tagline-reveal-slot.do-appear a { font-size: 3.34vw !important; }
+}
+
+/* Khusus 1528x732 desktop */
+@media (min-width: 1500px) and (max-width: 1599px) and (min-height: 730px) {
+    .scratch-reveal a { font-size: 3.34vw !important; }
+    .tagline-reveal-slot.do-appear a { font-size: 3vw !important; }
+    .tagline-desktop { font-size: 3.5vw !important; }
+}
+
+/* Spacer atas khusus untuk iPhone SE / 375x667 */
+@media (max-width: 639px) and (min-width: 360px) and (max-height: 680px) {
+    .mobile-spacer-top { min-height: 5px !important; }
+}
+
+/* Khusus 360x560 mobile */
+@media (max-width: 370px) and (min-width: 350px) and (max-height: 600px) {
+    .mobile-spacer-top { min-height: 5px !important; }
+    .gg-mobile-brand { margin: 0 24.5% 10px 24.5%; }
+    .bg-linier-mobile { width: 75% !important; }
+    .scratch-reveal a { font-size: clamp(19px,6vw,30px) !important; }
+    .tagline-reveal-slot.do-appear a { font-size: clamp(18px, 3vw, 25px) !important; }
+    .tagline-mobile { font-size: clamp(20px, 6vw, 42px) !important; }
+    #tagline-slot-mobile { padding: 5px 5px 0 5px !important; }
+}
+
+/* device client */
+@media (max-width: 430px) and (min-height: 660px) and (max-height: 680px) {
+    .gg-mobile-brand { margin: 0 24% 10px 24% !important; }
+    .gg-mobile-brand .bg-image {
+        background: transparent !important;
+        border-radius: 0 0 25px 25px;
+        padding: 0 8px 8px 8px;
+        box-sizing: border-box;
+        width: fit-content;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 430px) and (min-height: 711px) and (max-height: 740px) {
+    #gg-mobile .gg-mobile-brand { margin: 0 25% 10px 25% !important; }
+    .gg-mobile-brand .bg-image {
+        background: transparent !important;
+        border-radius: 0 0 25px 25px;
+        padding: 0 8px 8px 8px;
+        box-sizing: border-box;
+        width: fit-content;
+        margin: 0 auto;
+    }
+}
+
+/* Rivet lebih kecil di mobile */
+@media (max-width: 639px) {
+    .scratch-wrap .rivet { width: 20px !important; height: 20px !important; }
+}
+
+/* Spacer atas khusus untuk 430x721 */
+@media (max-width: 439px) and (min-width: 420px) and (min-height: 700px) and (max-height: 740px) {
+    .mobile-spacer-top { min-height: 20px !important; flex: 0 !important; }
+}
+
+/* ── Scratch canvas wrapper ───────────────────────────────────────────────── */
+.scratch-wrap {
+    position: relative;
+    cursor: crosshair;
+    touch-action: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.scratch-reveal {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.scratch-reveal a p { margin: 0; padding: 0; }
+.scratch-reveal a strong, .scratch-reveal a b { font-weight: 900; }
+.scratch-reveal a em, .scratch-reveal a i { font-style: italic; }
+.scratch-reveal a u { text-decoration: underline; }
+.scratch-reveal a h2 { font-size: 1.5em; margin: 0; padding: 0; font-weight: 900; }
+.scratch-reveal a h3 { font-size: 1.2em; margin: 0; padding: 0; font-weight: 700; }
+.scratch-reveal a span { display: inline; }
+
+/* Rivets */
+.scratch-wrap .rivet {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    z-index: 3;
+    overflow: hidden;
+}
+
+.scratch-wrap .rivet.tl { top: 6px; left: 6px; }
+.scratch-wrap .rivet.tr { top: 6px; right: 6px; }
+.scratch-wrap .rivet.bl { bottom: 6px; left: 6px; }
+.scratch-wrap .rivet.br { bottom: 6px; right: 6px; }
+
+.scratch-canvas {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.scratch-wrap.revealed {
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+.scratch-wrap.revealed .rivet { display: none !important; }
+
+.left-content .bg-image {
+    background: transparent;
+    border-radius: 0 0 25px 25px;
+    padding: 0 8px 8px 8px;
+    box-sizing: border-box;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+.gg-mobile-brand .bg-image {
+    background: transparent;
+    border-radius: 0 0 25px 25px;
+    padding: 0 8px 8px 8px;
+    box-sizing: border-box;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+.gg-canvas-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: inherit;
+    z-index: 0;
+    pointer-events: none;
+    display: block;
+}
+
+.left-content .bg-image > *:not(.gg-canvas-bg),
+.gg-mobile-brand .bg-image > *:not(.gg-canvas-bg),
+.scratch-wrap-wrap > *:not(.gg-canvas-bg),
+.bg-linier-mobile > *:not(.gg-canvas-bg) {
+    position: relative;
+    z-index: 1;
+}
+
+.gudang-garam {
+    width: clamp(300px, 35vw, 620px);
+    height: auto;
+    border-radius: 0 0 20px 20px;
+    box-shadow: -5px 5px 8px -3px #62491d;
+    display: block;
+}
+
+.scratch-wrap-wrap {
+    background: transparent;
+    border-radius: 7px;
+    padding: 10px;
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    position: relative;
+}
+
+.tagline {
+    padding: 15px 10px 5px 10px;
+    width: 100%;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.tagline.tagline-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.tagline.tagline-gone { display: none !important; }
+
+.scratch-wrap {
+    width: clamp(327px, 38.7vw, 908px);
+    height: clamp(112px, 14.65vw, 310px);
+}
+
+/* ── Animations ───────────────────────────────────────────────────────────── */
+@keyframes zoomInClick {
+    0%   { transform: scale(1); opacity: 1; }
+    40%  { transform: scale(1.18); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.scratch-reveal { transform-origin: center center; }
+
+@keyframes screenShake {
+    0%   { transform: translateX(0); }
+    15%  { transform: translateX(-1.2px); }
+    30%  { transform: translateX(1.2px); }
+    45%  { transform: translateX(-0.9px); }
+    60%  { transform: translateX(0.75px); }
+    75%  { transform: translateX(-0.45px); }
+    88%  { transform: translateX(0.23px); }
+    100% { transform: translateX(0); }
+}
+
+body.screen-shake {
+    animation: screenShake 400ms ease-out;
+    animation-fill-mode: none;
+}
+
+@keyframes revealZoom {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.08); }
+    70%  { transform: scale(0.97); }
+    100% { transform: scale(1); }
+}
+
+.scratch-wrap.reveal-zoom {
+    animation: revealZoom 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    pointer-events: auto;
+}
+
+@keyframes pulseBesar {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+.scratch-reveal a {
+    display: inline-block;
+    pointer-events: none;
+    cursor: default;
+    transform-origin: center center;
+    will-change: transform;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+}
+
+.scratch-wrap.text-revealed .scratch-reveal a {
+    pointer-events: auto;
+    cursor: pointer;
+    display: block;
+}
+
+.scratch-wrap.text-revealed .scratch-reveal a.clicking {
+    animation: zoomInClick 0.8s ease-in-out;
+    transform-origin: center center;
+}
+
+.tagline { animation: none; }
+.tagline.do-pulse { animation: pulseBesar 1.5s ease-in-out infinite; }
+
+@keyframes zoomPulseTagline {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.10); }
+    100% { transform: scale(1); }
+}
+
+@keyframes zoomPulseTaglineMobile {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+.tagline.do-zoom-pulse       { animation: zoomPulseTagline 1.5s ease-in-out; transform-origin: center center; }
+.tagline.do-zoom-pulse-mobile { animation: zoomPulseTaglineMobile 1.5s ease-in-out; transform-origin: center center; }
+
+@keyframes scratchShine {
+    0%   { left: -35%; opacity: 1; }
+    85%  { left: 115%; opacity: 1; }
+    100% { left: 115%; opacity: 0; }
+}
+
+.scratch-shine {
+    position: absolute;
+    top: -20%;
+    left: -35%;
+    width: 45%;
+    height: 140%;
+    background: none;
+    transform: skewX(-18deg);
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0;
+    will-change: left, opacity;
+    overflow: hidden;
+}
+
+.scratch-shine > canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.scratch-shine.do-shine {
+    animation: scratchShine 2.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.tagline-reveal-slot {
+    padding: 2px 10px 0 10px;
+    width: 100%;
+    max-width: clamp(327px, 38.7vw, 908px);
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    line-height: 0;
+    font-size: 0;
+}
+
+.tagline-reveal-slot a,
+.tagline-reveal-slot a * {
+    color: #760000 !important;
+    -webkit-text-fill-color: #760000 !important;
+}
+
+@keyframes revealAnchorIn {
+    0%   { opacity: 0; transform: scale(0.7); }
+    60%  { opacity: 1; transform: scale(1.15); }
+    80%  { transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.tagline-reveal-slot.do-appear {
+    opacity: 1;
+    pointer-events: auto;
+    animation: revealAnchorIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes anchorZoomRedirect {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.18); }
+    70%  { transform: scale(0.95); }
+    100% { transform: scale(1.05); }
+}
+
+.tagline-reveal-slot a.do-redirect-zoom {
+    display: inline-block;
+    animation: anchorZoomRedirect 0.8s ease-in-out forwards;
+    transform-origin: center center;
+}
+
+@keyframes screenShake2 {
+    0%   { transform: translateX(0) translateY(0); }
+    10%  { transform: translateX(-2px) translateY(1px); }
+    22%  { transform: translateX(2.5px) translateY(-1px); }
+    34%  { transform: translateX(-2px) translateY(0.5px); }
+    46%  { transform: translateX(1.8px) translateY(-0.5px); }
+    58%  { transform: translateX(-1.2px) translateY(0); }
+    70%  { transform: translateX(0.8px); }
+    82%  { transform: translateX(-0.4px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+body.screen-shake-2 {
+    animation: screenShake2 500ms ease-out;
+    animation-fill-mode: none;
+}
+
+@keyframes coverRedraw {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.scratch-canvas.redraw-anim {
+    animation: coverRedraw 0.5s ease-in forwards;
+}
+
+/* ── Force-dark protection for footer ───────────────────────────────────── */
+footer,
+footer *,
+.perokok-container,
+.perokok-container img,
+.gg-price-wrapper-desktop,
+.gg-price-wrapper-mobile,
+.gg-price-area,
+.gg-price-wrapper-desktop *,
+.gg-price-wrapper-mobile * {
+    forced-color-adjust: none !important;
+    color-scheme: light only;
+}
+
+.perokok-container img,
+#gg-price-text-desktop,
+#gg-price-text-mobile,
+.gg-price-area,
+.gg-price-bg-desktop {
+    -webkit-filter: brightness(1) !important;
+    filter: brightness(1) !important;
+}
+
+@media (min-width: 640px) {
+    .gg-price-wrapper-mobile { display: none !important; }
+}
+
+@media (max-width: 639px) {
+    .gg-price-wrapper-desktop { display: none !important; }
+    .gg-price-wrapper-mobile {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        overflow: visible !important;
+    }
+}
+
+@media (max-width: 439px) and (min-width: 420px) and (min-height: 700px) and (max-height: 740px) {
+    .gg-price-area { width: 80% !important; }
+}
+
+.perokok-container {
+    aspect-ratio: 537 / 355;
+    height: auto !important;
+    width: clamp(80px, 10vw, 150px) !important;
+    align-self: stretch;
+    overflow: hidden;
+}
+
+@media (max-width: 639px) {
+    .perokok-container {
+        width: 30% !important;
+        height: auto !important;
+        align-self: auto;
+    }
+}
+
+/* ── Price reveal animations ─────────────────────────────────────────────── */
+.gg-price-wrapper-desktop,
+.gg-price-wrapper-mobile {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes priceWrapperFadeLeft {
+    0%   { opacity: 0; transform: translateX(60px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+.gg-price-wrapper-desktop.price-revealed,
+.gg-price-wrapper-mobile.price-revealed {
+    animation: priceWrapperFadeLeft 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    pointer-events: auto;
+}
+
+@keyframes priceTextReveal {
+    0%   { opacity: 0; transform: scale(0.7); }
+    55%  { opacity: 1; transform: scale(1.08); }
+    75%  { transform: scale(0.96); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+#gg-price-text-desktop.price-text-revealed,
+#gg-price-text-mobile.price-text-revealed {
+    animation: priceTextReveal 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@media (max-width: 439px) and (min-width: 420px) and (min-height: 711px) and (max-height: 740px) {
+    .gg-price-wrapper-mobile {
+        width: 100vw !important;
+        position: relative;
+        left: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+    .gg-price-area {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* ── Peringatan text styling ─────────────────────────────────────────────── */
+.peringatan-text p { margin: 0; padding: 0; }
+.peringatan-text p[style*="margin-top"] { padding: 0; }
+.peringatan-text .dilarang-mobile { display: none; }
+.peringatan-text .karena-mobile   { display: none; }
+
+@media (max-width: 639px) {
+    .peringatan-text .dilarang-desktop { display: none; }
+    .peringatan-text .dilarang-mobile  { display: block; }
+    .peringatan-text .karena-desktop   { display: none; }
+    .peringatan-text .karena-mobile    { display: block; }
+}
+
+.peringatan-text strong, .peringatan-text b { font-weight: 700; }
+.peringatan-text em, .peringatan-text i { font-style: italic; }
+.peringatan-text u { text-decoration: underline; }
+.peringatan-text a { color: #FFD700; text-decoration: underline; }
+.peringatan-text ul, .peringatan-text ol { margin: 0; padding-left: 1em; }
